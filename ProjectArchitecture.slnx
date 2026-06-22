@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="src/Architecture.Application/Architecture.Application.csproj" Id="fc54106d-e240-46ee-ba17-c51d02616f7a" />
+  <Project Path="src/Architecture.Domain/Architecture.Domain.csproj" Id="9a9f136f-9b3c-4c0e-a38e-4063c9766c8f" />
+  <Project Path="src/Architecture.Infrastructure/Architecture.Infrastructure.csproj" Id="7994dc1a-7cfa-470f-b501-86efecb3e9d9" />
   <Project Path="src/Architecture.Web/Architecture.Web.csproj" Id="92ef98df-db6c-4dc1-9047-1236bf191f02" />
 </Solution>
