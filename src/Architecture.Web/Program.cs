@@ -1,4 +1,7 @@
+using Architecture.Web;
 using Architecture.Web.Data;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -22,6 +25,16 @@ try
         .Enrich.FromLogContext()
         .ReadFrom.Configuration(context.Configuration)
         );
+
+    #endregion
+
+    #region Autofac Configuration
+
+    builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+    builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+    {
+        containerBuilder.RegisterModule(new WebModule(connectionString));
+    });
 
     #endregion
 
