@@ -7,6 +7,6 @@ namespace Architecture.Application.Contracts
 {
     public interface IApplicationUnitOfWork : IUnitOfWork
     {
-        public IProductRepository ProductRepository { get; set; }
+        public IProductRepository ProductRepository { get; }
     }
 }

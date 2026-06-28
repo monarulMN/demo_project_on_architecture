@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Architecture.Infrastructure.Data
 {
-    public class Repository<TAggregateRoot, TKey> : IRepository<TAggregateRoot, TKey>, IDisposable
+    public abstract class Repository<TAggregateRoot, TKey> : IRepository<TAggregateRoot, TKey>, IDisposable
         where TAggregateRoot : class, IAggregateRoot<TKey>
         where TKey : IComparable
     {
