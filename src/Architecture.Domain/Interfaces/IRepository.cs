@@ -9,10 +9,7 @@ namespace Architecture.Domain.Interfaces
         where TKey : IComparable
     {
         void Add(TAggregateRoot entity);
-        void AddAsync(TAggregateRoot entity);
-        void Update(TAggregateRoot entity);
-        void UpdateAsync(TAggregateRoot entity);
-        void Delete(TAggregateRoot entity);
-        void DeleteAsync(TAggregateRoot entity);
+        Task AddAsync(TAggregateRoot entity);
+        
     }
 }

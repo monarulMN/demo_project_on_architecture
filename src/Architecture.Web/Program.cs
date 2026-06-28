@@ -5,6 +5,7 @@ using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using Architecture.Infrastructure.Extensions;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.File("Logs/web-log-.log", rollingInterval: RollingInterval.Day)
@@ -16,6 +17,12 @@ try
 
     // Add services to the container.
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+    #region Dependency Injection
+
+    builder.Services.AddInfrastructureDependency();
+
+    #endregion
 
     #region Serilog Configuration
 

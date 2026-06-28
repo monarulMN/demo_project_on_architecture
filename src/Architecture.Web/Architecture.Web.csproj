@@ -22,4 +22,9 @@
     <Folder Include="Logs\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Architecture.Application\Architecture.Application.csproj" />
+    <ProjectReference Include="..\Architecture.Infrastructure\Architecture.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
