@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Architecture.Domain\Architecture.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\" />
+  </ItemGroup>
+
 </Project>
