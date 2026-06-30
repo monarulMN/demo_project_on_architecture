@@ -3,6 +3,7 @@ using Architecture.Infrastructure.Extensions;
 using Architecture.Web;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Cortex.Mediator.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -45,6 +46,15 @@ try
     {
         containerBuilder.RegisterModule(new WebModule(connectionString));
     });
+
+    #endregion
+
+    #region Cortex Mediator Configuration
+
+    builder.Services.AddCortexMediator(
+        new[] {typeof(Program)},
+        options => options.AddDefaultBehaviors()
+        );
 
     #endregion
 

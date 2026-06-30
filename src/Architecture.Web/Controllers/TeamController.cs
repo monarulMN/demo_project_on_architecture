@@ -15,7 +15,7 @@ namespace Architecture.Web.Controllers
         }
         public IActionResult Index()
         {
-            _unitOfWork.ProductRepository.Add(new Product { Id = Guid.NewGuid(), Name = " Sample Product", Price = 99});
+            _unitOfWork.ProductRepository.Add(new Product { Id = Guid.NewGuid(), Name = "Sample Product", Price = 99});
             _unitOfWork.Save();
 
             return View();
