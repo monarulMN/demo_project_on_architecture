@@ -1,22 +1,29 @@
 ﻿using Architecture.Application.Contracts;
+using Architecture.Application.Features.Products.Command;
 using Architecture.Domain.Entities;
+using Cortex.Mediator;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Architecture.Web.Controllers
 {
     public class TeamController : Controller
     {
-        private readonly IApplicationUnitOfWork _unitOfWork;
+        private readonly IMediator _mediator;
 
-        public TeamController(IApplicationUnitOfWork unitOfWork)
+        public TeamController(IMediator mediator)
         {
-            _unitOfWork = unitOfWork;
-
+            _mediator = mediator;
         }
         public IActionResult Index()
         {
-            _unitOfWork.ProductRepository.Add(new Product { Id = Guid.NewGuid(), Name = "Sample Product", Price = 99});
-            _unitOfWork.Save();
+            var command = new ProductAddCommand
+            {
+                Id = Guid.NewGuid(),
+                Name = "Sample Product",
+                Price = 999
+            };
+
+            var result = _mediator.SendCommandAsync(command).Result;
 
             return View();
         }

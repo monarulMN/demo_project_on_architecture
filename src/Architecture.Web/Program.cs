@@ -1,3 +1,4 @@
+using Architecture.Application.Features.Products.Command;
 using Architecture.Infrastructure.Data;
 using Architecture.Infrastructure.Extensions;
 using Architecture.Web;
@@ -52,7 +53,7 @@ try
     #region Cortex Mediator Configuration
 
     builder.Services.AddCortexMediator(
-        new[] {typeof(Program)},
+        new[] {typeof(Program), typeof(ProductAddCommand)},
         options => options.AddDefaultBehaviors()
         );
 
